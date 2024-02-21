@@ -1,0 +1,6 @@
+
+/* Estilo para centrar la tarjeta */
+.center-card {
+    margin: 200 auto;
+    float: none;
+}

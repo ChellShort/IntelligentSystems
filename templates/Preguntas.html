@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="{{url_for('static', filename='css/inicio.css')}}">
+  <title>Diagnóstico de COVID</title>
+</head>
+
+<style>
+    .right-align {
+      text-align: right;
+    }
+    .header-container {
+        padding: 2px; /* Adjust padding as needed */
+        border: 2px solid #ccc; /* Add border as needed */
+        border-radius: 3px; /* Add border-radius for rounded corners */
+    }
+</style>
+
+<body>
+
+    <nav class="navbar" style="background-color: #630303;">
+        <div class="container-fluid">
+          <a class="navbar-brand">
+            <img src="{{ url_for('static', filename='imagenes/LogoS.png') }}" alt="Logo" width="250" height="100" class="d-inline-block align-text-top">
+          </a>
+        </div>
+    </nav>
+
+<div>
+    <div class="m-5">
+        <div class="p-5">
+
+
+                <h1 class="text-center mt-5">Cálculo de probabilidades COVID-19</h1>
+                <h3 class="text-center mt-5">¿Qué probabilidad gustas saber?</h3>
+                <div class="m-1 center-card">
+                <table class="table" border="1">
+                    <thead>
+                    <tr>
+                        <th colspan="4" class="bg-default"></th>
+                        <th colspan="5" class="text-center bg-primary">Hospitalizado</th>
+                        <th colspan="6" class="text-center bg-success">Ambulatorio</th>
+                    </tr>
+                    <tr>
+                        <th class="table-active">Sexo</th>
+                        <th class="table-active">Confirmado COVID</th>
+                        <th class="table-active">Hospitalizado</th>
+                        <th class="table-active">Ambulatorio</th>
+
+                        <th class="table-active">Hipertensión</th>
+                        <th class="table-active">Obesidad</th>
+                        <th class="table-active">Diabetes</th>
+                        <th class="table-active">Tabaquísmo</th>
+                        <th class="table-active">Otras enfermedades</th>
+
+                        <th class="table-active">Hipertensión</th>
+                        <th class="table-active">Obesidad</th>
+                        <th class="table-active">Diabetes</th>
+                        <th class="table-active">Tabaquísmo</th>
+                        <th class="table-active">Otras enfermedades</th>
+                    </tr>
+                    </thead>
+                    <tr>
+                        <td class="table-info">Hombre</td>
+                        <td class="right-align">{% if proba_eventoA1 is defined %} {{proba_eventoA1|round(2)}} {% else %}null{% endif %}%</td>
+                        <td class="right-align">{% if proba_hospitalizadoA1 is defined %} {{proba_hospitalizadoA1|round(2)}} {% else %}null{% endif %}%</td>
+                        <td class="right-align">{% if proba_ambulatorioA2 is defined %} {{proba_ambulatorioA2|round(2)}} {% else %}null{% endif %}%</td>
+
+                        <td class="right-align">{% if hombreHospitalHipertension is defined %} {{hombreHospitalHipertension|round(2)}} {% else %}null{% endif %}%</td>
+                        <td class="right-align">{% if hombreHospitalObesidad is defined %} {{hombreHospitalObesidad|round(2)}} {% else %}null{% endif %}%</td>
+                        <td class="right-align">{% if hombreHospitalDiabetes is defined %} {{hombreHospitalDiabetes|round(2)}} {% else %}null{% endif %}%</td>
+                        <td class="right-align">{% if hombreHospitalTabaquismo is defined %} {{hombreHospitalTabaquismo|round(2)}} {% else %}null{% endif %}%</td>
+                        <td class="right-align">{% if hombreHospitalOtrasEnf is defined %} {{hombreHospitalOtrasEnf|round(2)}} {% else %}null{% endif %}%</td>
+
+                        <td class="right-align">{% if hombreAmbulatorioHipertension is defined %} {{hombreAmbulatorioHipertension|round(2)}} {% else %}null{% endif %}%</td>
+                        <td class="right-align">{% if hombreAmbulatorioObesidad is defined %} {{hombreAmbulatorioObesidad|round(2)}} {% else %}null{% endif %}%</td>
+                        <td class="right-align">{% if hombreAmbulatorioDiabetes is defined %} {{hombreAmbulatorioDiabetes|round(2)}} {% else %}null{% endif %}%</td>
+                        <td class="right-align">{% if hombreAmbulatorioTabaquismo is defined %} {{hombreAmbulatorioTabaquismo|round(2)}} {% else %}null{% endif %}%</td>
+                        <td class="right-align">{% if hombreAmbulatorioOtrasEnf is defined %} {{hombreAmbulatorioOtrasEnf|round(2)}} {% else %}null{% endif %}%</td>
+                    </tr>
+                    <tr>
+                        <td class="table-danger">Mujer</td>
+                        <td class="right-align">{% if proba_eventoA2 is defined %} {{proba_eventoA2|round(2)}} {% else %}null{% endif %}%</td>
+                        <td class="right-align">{% if proba_hospitalizadaA3 is defined %} {{proba_hospitalizadaA3|round(2)}} {% else %}null{% endif %}%</td>
+                        <td class="right-align">{% if proba_ambulatorioA4 is defined %} {{proba_ambulatorioA4|round(2)}} {% else %}null{% endif %}%</td>
+
+                        <td class="right-align">{% if mujerHospitalHipertension is defined %} {{mujerHospitalHipertension|round(2)}} {% else %}null{% endif %}%</td>
+                        <td class="right-align">{% if mujerHospitalObesidad is defined %} {{mujerHospitalObesidad|round(2)}} {% else %}null{% endif %}%</td>
+                        <td class="right-align">{% if mujerHospitalDiabetes is defined %} {{mujerHospitalDiabetes|round(2)}} {% else %}null{% endif %}%</td>
+                        <td class="right-align">{% if mujerHospitalTabaquismo is defined %} {{mujerHospitalTabaquismo|round(2)}} {% else %}null{% endif %}%</td>
+                        <td class="right-align">{% if mujerHospitalOtrasEnf is defined %} {{mujerHospitalOtrasEnf|round(2)}} {% else %}null{% endif %}%</td>
+
+                        <td class="right-align">{% if mujerAmbulatorioHipertension is defined %} {{mujerAmbulatorioHipertension|round(2)}} {% else %}null{% endif %}%</td>
+                        <td class="right-align">{% if mujerAmbulatorioObesidad is defined %} {{mujerAmbulatorioObesidad|round(2)}} {% else %}null{% endif %}%</td>
+                        <td class="right-align">{% if mujerAmbulatorioDiabetes is defined %} {{mujerAmbulatorioDiabetes|round(2)}} {% else %}null{% endif %}%</td>
+                        <td class="right-align">{% if mujerAmbulatorioTabaquismo is defined %} {{mujerAmbulatorioTabaquismo|round(2)}} {% else %}null{% endif %}%</td>
+                        <td class="right-align">{% if mujerAmbulatorioOtrasEnf is defined %} {{mujerAmbulatorioOtrasEnf|round(2)}} {% else %}null{% endif %}%</td>
+                    </tr>
+                </table>
+                </div>
+
+                <div class="card center-card">
+                    <form action="/probabilidad" method="POST">
+
+                    <div class="card-body">
+                        <div class="form-group">
+                            <label for="pregunta">Selecciona una pregunta:</label>
+                            <select class="form-control" id="pregunta" name="txtpregunta">
+                                <option value="probabilidad_hombre_diagnosticado">¿Cuál es la probabilidad de que un hombre sea diagnosticado con COVID?</option>
+                                <option value="probabilidad_mujer_diagnosticada">¿Cuál es la probabilidad de que una mujer sea diagnosticada con COVID?</option>
+                                <option value="probabilidad_hombre_hospitalizado">¿Cuál es la probabilidad de que un hombre que tiene COVID sea hospitalizado?</option>
+                                <option value="probabilidad_mujer_ambulatoria">¿Cuál es la probabilidad de que una mujer que tiene COVID sea ambulatoria?</option>
+                                <option value="probabilidad_hombre_hospitalizado_hipertension">¿Cuál es la probabilidad de que un hombre que tiene COVID sea hospitalizado y tuviera hipertensión?</option>
+                                <option value="probabilidad_mujer_ambulatoria_diabetes">¿Cuál es la probabilidad de que una mujer que tiene COVID sea ambulatoria y tuviera diabetes?</option>
+                            </select>
+                        </div>
+                        
+                        
+                        <div class="text-center">
+                            <button type="submit" class="btn btn-danger">Enviar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-2"></div>
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
