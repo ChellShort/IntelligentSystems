@@ -20,10 +20,10 @@
 
 <body>
 
-    <nav class="navbar" style="background-color: #630303;">
+    <nav class="navbar" style="background-color: #63cfab;">
         <div class="container-fluid">
           <a class="navbar-brand">
-            <img src="{{ url_for('static', filename='imagenes/LogoS.png') }}" alt="Logo" width="250" height="100" class="d-inline-block align-text-top">
+            <img src="{{ url_for('static', filename='imagenes/LogoS.png') }}" alt="Logo" width="300" height="100" class="d-inline-block align-text-top">
           </a>
         </div>
     </nav>
@@ -34,14 +34,14 @@
 
 
                 <h1 class="text-center mt-5">Cálculo de probabilidades COVID-19</h1>
-                <h3 class="text-center mt-5">¿Qué probabilidad gustas saber?</h3>
+                <h3 class="text-center mt-5">¿Qué probabilidad gustas saber?</h3><br>
                 <div class="m-1 center-card">
                 <table class="table" border="1">
                     <thead>
                     <tr>
                         <th colspan="4" class="bg-default"></th>
-                        <th colspan="5" class="text-center bg-primary">Hospitalizado</th>
-                        <th colspan="6" class="text-center bg-success">Ambulatorio</th>
+                        <th colspan="5" class="text-center bg-primary"><h2>Hospitalizado</h2></th>
+                        <th colspan="6" class="text-center bg-success"><h2>Ambulatorio</h2></th>
                     </tr>
                     <tr>
                         <th class="table-active">Sexo</th>
@@ -101,28 +101,10 @@
                 </table>
                 </div>
 
-                <div class="card center-card">
-                    <form action="/probabilidad" method="POST">
-
-                    <div class="card-body">
-                        <div class="form-group">
-                            <label for="pregunta">Selecciona una pregunta:</label>
-                            <select class="form-control" id="pregunta" name="txtpregunta">
-                                <option value="probabilidad_hombre_diagnosticado">¿Cuál es la probabilidad de que un hombre sea diagnosticado con COVID?</option>
-                                <option value="probabilidad_mujer_diagnosticada">¿Cuál es la probabilidad de que una mujer sea diagnosticada con COVID?</option>
-                                <option value="probabilidad_hombre_hospitalizado">¿Cuál es la probabilidad de que un hombre que tiene COVID sea hospitalizado?</option>
-                                <option value="probabilidad_mujer_ambulatoria">¿Cuál es la probabilidad de que una mujer que tiene COVID sea ambulatoria?</option>
-                                <option value="probabilidad_hombre_hospitalizado_hipertension">¿Cuál es la probabilidad de que un hombre que tiene COVID sea hospitalizado y tuviera hipertensión?</option>
-                                <option value="probabilidad_mujer_ambulatoria_diabetes">¿Cuál es la probabilidad de que una mujer que tiene COVID sea ambulatoria y tuviera diabetes?</option>
-                            </select>
-                        </div>
-                        
-                        
                         <div class="text-center">
-                            <button type="submit" class="btn btn-danger">Enviar</button>
+                            <i class="bi bi-arrow-return-left"></i>
+                            <a href="/">Regresar</a>
                         </div>
-                    </form>
-                </div>
             </div>
         </div>
         <div class="col-md-2"></div>
